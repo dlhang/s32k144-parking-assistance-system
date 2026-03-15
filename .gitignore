@@ -1,0 +1,27 @@
+# Build folders
+Debug/
+Release/
+build/
+
+# Eclipse / S32 Design Studio
+.metadata/
+.settings/
+.project
+.cproject
+
+# Object files
+*.o
+*.d
+*.elf
+*.axf
+*.map
+*.bin
+*.hex
+
+# Temporary files
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
