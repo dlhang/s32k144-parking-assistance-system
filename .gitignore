@@ -17,6 +17,8 @@ build/
 *.map
 *.bin
 *.hex
+Debug_FLASH/
+Debug_RAM/
 
 # Temporary files
 *.log
