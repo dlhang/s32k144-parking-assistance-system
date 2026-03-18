@@ -5,9 +5,6 @@ build/
 
 # Eclipse / S32 Design Studio
 .metadata/
-.settings/
-.project
-.cproject
 
 # Object files
 *.o
