@@ -1,50 +1,40 @@
-# S32K144 Parking Assistance System
+# S32K144 Smart Parking Assistance System - Version 2.0
 
-An embedded parking assistance prototype designed using the NXP S32K144 microcontroller.  
-The system measures the distance to nearby objects using an ultrasonic sensor and detects motion using a PIR sensor. Real-time distance data is transmitted through UART for monitoring and debugging.
+## Project Overview
+This repository contains the embedded software for a vehicle parking assistance system developed on the NXP S32K144 microcontroller. The system integrates ultrasonic distance measurement (SRF05) and motion detection (PIR) to provide real-time proximity monitoring via UART telemetry.
 
-## System Overview
+## Technical Specifications
+- **Microcontroller:** NXP S32K144 (Arm Cortex-M4F)
+- **Development Environment:** S32 Design Studio for S32 Platform
+- **SDK Version:** S32K144_SDK_gcc_RTM_3.0.0
+- **Peripherals:** - LPUART1 (Data Transmission)
+  - PORT/GPIO (Sensor Interfacing)
+  - FTM/LPIT (Timing Management)
 
-This project demonstrates sensor interfacing and basic driver usage on the NXP S32K144 platform.  
-The system periodically measures object distance using an ultrasonic sensor and detects motion through a PIR sensor, providing visual feedback through an LED and sending distance data via UART.
+## Current Status and Implementation (v0.7)
+The project is currently at 70% completion, focusing on stable peripheral communication and initial sensor integration.
 
-## Hardware Components
+### System Stability Challenges
+The development process is currently addressing several stability factors to reach 100% reliability:
+- **UART Communication:** Successfully implemented and stable for data monitoring.
+- **PIR Sensor Stability:** Investigating false triggers caused by EMI (Electromagnetic Interference) and software-based debounce logic.
+- **SRF05 Accuracy:** Analyzing signal jitter and optimizing trigger/echo timing to improve distance measurement precision.
+- **Sensitivity Calibration:** Testing hardware sensitivity settings and software thresholds for optimal detection range.
 
-- NXP S32K144 microcontroller (S32K144 EVB)
-- SRF05 / HC-SR05 ultrasonic distance sensor
-- PIR motion sensor
-- LED indicator
-- USB-UART interface for serial monitoring
+### Version Control Strategy
+This project underwent a structural recovery after a metadata corruption event.
+- **Main Branch:** Current working version with restored IDE compatibility.
+- **Old-version Branch:** Preserved as a technical archive for troubleshooting and legacy analysis of initial configuration errors.
 
-## System Architecture
+## Installation and Deployment
+1. Clone the repository.
+2. Open S32 Design Studio.
+3. Select `File -> Import -> General -> Existing Projects into Workspace`.
+4. Point to the project directory and click Finish.
+5. Open the `.mex` configuration file and click `Update Code` to synchronize drivers.
+6. Build and Flash the `.elf` binary to the S32K144 Evaluation Board.
 
-Ultrasonic Sensor → S32K144 → UART → Serial Monitor  
-PIR Sensor → S32K144 → LED Indicator
-
-1. The ultrasonic sensor measures the distance to nearby objects using trigger and echo signals.
-2. The S32K144 captures the echo pulse duration to calculate object distance.
-3. A PIR sensor detects motion in the environment.
-4. Distance data is formatted and transmitted via UART to a serial monitor.
-5. The LED indicator shows motion detection status.
-
-## Features
-
-- Ultrasonic distance measurement
-- PIR motion detection
-- Real-time UART distance monitoring
-- LED status indication
-- Embedded C implementation using NXP SDK
-
-## Development Environment
-
-- NXP S32 Design Studio
-- NXP S32 SDK
-- Embedded C programming language
-
-## Possible Improvements
-
-- Add buzzer warning when object is too close
-- Implement multi-sensor parking detection
-- Add CAN communication for automotive integration
-- Display distance on LCD/OLED screen
-- Implement filtering for more stable distance measurement
+## Development Roadmap
+- Implement software filters to reduce SRF05 signal jitter.
+- Refine PIR detection logic to eliminate false positives.
+- Finalize system integration and responsiveness.

@@ -1,29 +1,16 @@
-# Build folders
+
 Debug/
 Release/
-build/
+bin/
+obj/
 
-# Eclipse / S32 Design Studio
 .metadata/
-.settings/
-.project
-.cproject
-
-# Object files
-*.o
-*.d
-*.elf
-*.axf
-*.map
-*.bin
-*.hex
-Debug_FLASH/
-Debug_RAM/
-
-# Temporary files
+.recommenders/
+RemoteSystemsTempFiles/
 *.log
-*.tmp
 
-# OS files
-.DS_Store
-Thumbs.db
+
+!.project
+!.cproject
+!.settings/
+!*.mex

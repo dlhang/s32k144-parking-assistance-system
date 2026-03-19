@@ -1,0 +1,34 @@
+src/driver/ftm_ic/ftm_ic.o: ../src/driver/ftm_ic/ftm_ic.c \
+ ../src/driver/ftm_ic/ftm_ic.h \
+ ../SDK/platform/drivers/inc/ftm_ic_driver.h \
+ ../SDK/platform/drivers/inc/ftm_common.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/status.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/device_registers.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/common/s32_core_cm4.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/S32K144/include/S32K144.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/S32K144/include/S32K144_features.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/devassert.h \
+ D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/callbacks.h \
+ ../SDK/platform/drivers/inc/ftm_common.h
+
+../src/driver/ftm_ic/ftm_ic.h:
+
+../SDK/platform/drivers/inc/ftm_ic_driver.h:
+
+../SDK/platform/drivers/inc/ftm_common.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/status.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/device_registers.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/common/s32_core_cm4.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/S32K144/include/S32K144.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/S32K144/include/S32K144_features.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/devassert.h:
+
+D:/S32/S32DS/software/S32SDK_S32K1XX_RTM_4.0.1/platform/devices/callbacks.h:
+
+../SDK/platform/drivers/inc/ftm_common.h:

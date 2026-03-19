@@ -85,8 +85,8 @@ outputs:
 - {id: SIRCDIV2_CLK.outFreq, value: 8 MHz}
 - {id: SOSCDIV1_CLK.outFreq, value: 8 MHz}
 - {id: SOSCDIV2_CLK.outFreq, value: 8 MHz}
-- {id: SPLLDIV1_CLK.outFreq, value: 112 MHz}
-- {id: SPLLDIV2_CLK.outFreq, value: 112 MHz}
+- {id: SPLLDIV1_CLK.outFreq, value: 56 MHz}
+- {id: SPLLDIV2_CLK.outFreq, value: 28 MHz}
 - {id: SPLL_CLK_OUT.outFreq, value: 112 MHz}
 - {id: SYS_CLK.outFreq, value: 48 MHz}
 - {id: TRACE_CLK.outFreq, value: 48 MHz}
@@ -96,6 +96,9 @@ settings:
 - {id: 'HSRUN:SCG.DIVSLOW.scale', value: '4', locked: true}
 - {id: 'HSRUN:SCG.SCSSEL.sel', value: SCG.SPLL_CLK}
 - {id: PCC.LPTMR0_FRAC.scale, value: '1', locked: true}
+- {id: PCC.LPUART0_CLK_SEL.sel, value: SCG.SOSCDIV2_CLK}
+- {id: PCC.LPUART1_CLK_SEL.sel, value: SCG.SOSCDIV2_CLK}
+- {id: PCC.LPUART2_CLK_SEL.sel, value: SCG.SOSCDIV2_CLK}
 - {id: PCC.PREDIV.scale, value: '1', locked: true}
 - {id: PCC.PREDIVTRACE.scale, value: '1', locked: true}
 - {id: PCC.TRACE_FRAC.scale, value: '1', locked: true}
@@ -113,8 +116,8 @@ settings:
 - {id: SCG.SIRCDIV2.scale, value: '1', locked: true}
 - {id: SCG.SOSCDIV1.scale, value: '1', locked: true}
 - {id: SCG.SOSCDIV2.scale, value: '1', locked: true}
-- {id: SCG.SPLLDIV1.scale, value: '1', locked: true}
-- {id: SCG.SPLLDIV2.scale, value: '1', locked: true}
+- {id: SCG.SPLLDIV1.scale, value: '2', locked: true}
+- {id: SCG.SPLLDIV2.scale, value: '4', locked: true}
 - {id: SCG.SPLL_mul.scale, value: '28', locked: true}
 - {id: 'VLPR:SCG.DIVBUS.scale', value: '1', locked: true}
 - {id: 'VLPR:SCG.DIVCORE.scale', value: '2', locked: true}
@@ -165,21 +168,21 @@ peripheral_clock_config_t peripheralClockConfig0[NUM_OF_PERIPHERAL_CLOCKS_0] = {
     {
         .clockName = LPUART0_CLK,
         .clkGate = true,
-        .clkSrc = CLK_SRC_SIRC_DIV2,
+        .clkSrc = CLK_SRC_SOSC_DIV2,
         .frac = MULTIPLY_BY_ONE,
         .divider = DIVIDE_BY_ONE,
     },
     {
         .clockName = LPUART1_CLK,
         .clkGate = true,
-        .clkSrc = CLK_SRC_SIRC_DIV2,
+        .clkSrc = CLK_SRC_SOSC_DIV2,
         .frac = MULTIPLY_BY_ONE,
         .divider = DIVIDE_BY_ONE,
     },
     {
         .clockName = LPUART2_CLK,
         .clkGate = true,
-        .clkSrc = CLK_SRC_SIRC_DIV2,
+        .clkSrc = CLK_SRC_SOSC_DIV2,
         .frac = MULTIPLY_BY_ONE,
         .divider = DIVIDE_BY_ONE,
     },
@@ -402,8 +405,8 @@ clock_manager_user_config_t clockMan1_InitConfig0 = {
             .prediv = (uint8_t)SCG_SPLL_CLOCK_PREDIV_BY_1,/* Divided by 1 */
             .mult = (uint8_t)SCG_SPLL_CLOCK_MULTIPLY_BY_28,/* Multiply Factor is 28 */
             .src = 0U,
-            .div1 = SCG_ASYNC_CLOCK_DIV_BY_1,     /* System PLL Clock Divider 1: divided by 1 */
-            .div2 = SCG_ASYNC_CLOCK_DIV_BY_1,     /* System PLL Clock Divider 3: divided by 1 */
+            .div1 = SCG_ASYNC_CLOCK_DIV_BY_2,     /* System PLL Clock Divider 1: divided by 2 */
+            .div2 = SCG_ASYNC_CLOCK_DIV_BY_4,     /* System PLL Clock Divider 3: divided by 4 */
         },
         .clockOutConfig =
         {

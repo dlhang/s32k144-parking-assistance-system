@@ -36,12 +36,13 @@ processor_version: 0.0.0
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', coreID: core0}
 - pin_list:
-  - {pin_num: '20', peripheral: PORTD, signal: 'port, 17', pin_signal: PTD17, direction: OUTPUT, PE: state_1}
-  - {pin_num: '24', peripheral: FTM2, signal: 'ch, 5', pin_signal: PTD14, direction: INPUT}
   - {pin_num: '81', peripheral: LPUART1, signal: rxd, pin_signal: PTC6}
-  - {pin_num: '80', peripheral: LPUART1, signal: txd, pin_signal: PTC7, direction: OUTPUT}
+  - {pin_num: '80', peripheral: LPUART1, signal: txd, pin_signal: PTC7}
+  - {pin_num: '20', peripheral: PORTD, signal: 'port, 17', pin_signal: PTD17, direction: OUTPUT}
+  - {pin_num: '24', peripheral: FTM2, signal: 'ch, 5', pin_signal: PTD14, direction: INPUT}
   - {pin_num: '21', peripheral: PORTD, signal: 'port, 16', pin_signal: PTD16, direction: OUTPUT}
-  - {pin_num: '33', peripheral: PORTD, signal: 'port, 5', pin_signal: PTD5, direction: INPUT}
+  - {pin_num: '25', peripheral: FTM2, signal: 'ch, 4', pin_signal: PTD13, direction: INPUT}
+  - {pin_num: '33', peripheral: PORTD, signal: 'port, 5', pin_signal: PTD5, direction: INPUT, PE: state_1, PS: state_0}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -64,6 +65,19 @@ pin_settings_config_t g_pin_mux_InitConfigArr0[NUM_OF_CONFIGURED_PINS0] = {
     {
         .base            = PORTC,
         .pinPortIdx      = 7U,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .driveSelect     = PORT_LOW_DRIVE_STRENGTH,
+        .passiveFilter   = false,
+        .mux             = PORT_MUX_ALT2,
+        .pinLock         = false,
+        .intConfig       = PORT_DMA_INT_DISABLED,
+        .clearIntFlag    = false,
+        .gpioBase        = NULL,
+        .digitalFilter   = false,
+    },
+    {
+        .base            = PORTD,
+        .pinPortIdx      = 13U,
         .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
         .driveSelect     = PORT_LOW_DRIVE_STRENGTH,
         .passiveFilter   = false,
@@ -105,7 +119,7 @@ pin_settings_config_t g_pin_mux_InitConfigArr0[NUM_OF_CONFIGURED_PINS0] = {
     {
         .base            = PORTD,
         .pinPortIdx      = 17U,
-        .pullConfig      = PORT_INTERNAL_PULL_DOWN_ENABLED,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
         .driveSelect     = PORT_LOW_DRIVE_STRENGTH,
         .passiveFilter   = false,
         .mux             = PORT_MUX_AS_GPIO,
@@ -120,7 +134,7 @@ pin_settings_config_t g_pin_mux_InitConfigArr0[NUM_OF_CONFIGURED_PINS0] = {
     {
         .base            = PORTD,
         .pinPortIdx      = 5U,
-        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .pullConfig      = PORT_INTERNAL_PULL_DOWN_ENABLED,
         .driveSelect     = PORT_LOW_DRIVE_STRENGTH,
         .passiveFilter   = false,
         .mux             = PORT_MUX_AS_GPIO,
